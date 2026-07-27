@@ -34,4 +34,23 @@
 # =============================================================================
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
+def is_prime(n):
+    # Numbers less than 2 are NOT prime
+    if n < 2:
+        return False
 
+    # Check for factors from 2 to the square root of n
+    i = 2
+    while i * i <= n:
+        if n % i == 0:
+            return False
+        i += 1
+    return True
+
+# Main block to execute the program
+if __name__ == "__main__":
+    num = int(input("Enter a number: "))
+    if is_prime(num):
+        print(f"{num} is a prime number.")
+    else:
+        print(f"{num} is NOT a prime number.")
