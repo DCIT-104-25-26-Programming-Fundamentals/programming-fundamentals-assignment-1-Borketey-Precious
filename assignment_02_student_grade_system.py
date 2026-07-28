@@ -45,3 +45,44 @@
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
 
+def get_grade(score):
+    # Validate score range (0 - 100)
+    if score < 0 or score > 100:
+        return None
+    
+    # Determine grade based on scale
+    if score >= 80:
+        return 'A'
+    elif score >= 70:
+        return 'B'
+    elif score >= 60:
+        return 'C'
+    elif score >= 50:
+        return 'D'
+    else:
+        return 'F'
+
+
+def main():
+    while True:
+        user_input = input("Enter student score (0-100) or 'q' to quit: ")
+        
+        # Check if user wants to exit
+        if user_input.lower() == 'q':
+            print("Exiting grade system. Goodbye!")
+            break
+            
+        try:
+            score = float(user_input)
+            grade = get_grade(score)
+            
+            if grade is None:
+                print("Error: Score must be between 0 and 100.\n")
+            else:
+                print(f"Grade: {grade}\n")
+        except ValueError:
+            print("Invalid input! Please enter a valid number or 'q'.\n")
+
+
+if __name__ == "__main__":
+    main()
